@@ -1,2 +1,2 @@
 # NFT-Marketplace
-This is NFT-Marketplace like opensea
+This is NFT-Marketplace like opensea.
