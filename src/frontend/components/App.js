@@ -3,7 +3,6 @@ import {
   Routes,
   Route
 } from "react-router-dom";
-import logo from './logo.png';
 import './App.css';
 import Navigation from './Navbar';
 import { useState } from 'react'
@@ -44,7 +43,7 @@ function App() {
   }
   return (
     <BrowserRouter>     
-      <div>
+      <div className="App">
         <Navigation web3Handler={web3Handler} account={account} />
         {loading ? (
           <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', minHeight: '80vh'}}>
@@ -54,11 +53,17 @@ function App() {
         ) : (
           <Routes>
             <Route path="/" element={
-              <Home />
+              <Home marketplace={marketplace} nft={nft} />
             } />
-            <Route path="/create" />
-            <Route path="/my-listed-items" />
-            <Route path="/my-purchases" />
+            <Route path="/create" element={
+              <Create marketplace={marketplace} nft={nft} />
+            } />
+            <Route path="/my-listed-items" element={
+              <MyListedItems marketplace={marketplace} nft={nft} account={account} />
+            } />
+            <Route path="/my-purchases" element={
+              <MyPurchases marketplace={marketplace} nft={nft} account={account} />
+            } />
           </Routes>
         )}
       </div>
